@@ -17,13 +17,14 @@
     <div ng-controller="testCtrl" ng-init="init(78)">
       <div>
         <form novalidate>
-          Percentage: <input type="text" ng-model="config1.completionPercent" value="30" placeholder="Enter Percentage"/><br />
+          Percentage: <input type="text" ng-model="completionPercent" placeholder="Enter Percentage"/><br />
         </form>
-        <pre>Percentage ==> {{config1.completionPercent}}</pre>
+        <br/>
+        <pre>Percentage ==> {{completionPercent}}</pre>
       </div>
 
 
-  <burble percentage='config1.completionPercent'></pie-chart>
+  <burble percentage='completionPercent'></burble>
 </div>
 
 

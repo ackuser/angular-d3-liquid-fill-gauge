@@ -12,20 +12,21 @@ angular.module('app', [])
 	{
 
 
-		$scope.config1.circleColor = "#FF7777";
+		$scope.completionPercent = percentage;
+		/*$scope.config1.circleColor = "#FF7777";
 		$scope.config1.textColor = "#FF4444";
 		$scope.config1.waveTextColor = "#FFAAAA";
 		$scope.config1.waveColor = "#FFDDDD";
 		config1.circleThickness = 0.2;
 		config1.textVertPosition = 0.2;
-		config1.waveAnimateTime = 1000;
+		config1.waveAnimateTime = 1000;*/
 
 
 
 	};
-	$scope.NewValue = function(percentage){
+	/*$scope.NewValue = function(percentage){
 						return percentage;
-		}
+		}*/
 
 
 }])	.directive('burble', function() {
@@ -39,18 +40,24 @@ angular.module('app', [])
 		link: function(scope, elem, attrs) {
 
 
-
+				//Falta el nombre
+				scope.gauge1 = loadLiquidFillGauge("fillgauge1", 55);
+				scope.config1 = liquidFillGaugeDefaultSettings();
 
 
 			scope.$watch(function(){
 
-				console.log(scope.percentage);
-				//animateIt();
-				scope.gauge1 = loadLiquidFillGauge("fillgauge1", 55);
-				scope.config1 = liquidFillGaugeDefaultSettings();
+				console.log();
+				if(isNaN(scope.percentage)){
+					scope.gauge1.update(NewValue(0));
+				}
+				else{
+					scope.gauge1.update(NewValue(scope.percentage));
+				}
 
 			}
 		);
+
 
 		function liquidFillGaugeDefaultSettings(){
 					return {
@@ -314,9 +321,9 @@ angular.module('app', [])
 					return new GaugeUpdater();
 			};
 
-
-
-
+			function NewValue(percentage){
+							return percentage;
+			}
 
 	}
 };

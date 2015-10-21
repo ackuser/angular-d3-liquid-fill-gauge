@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>SVG Circle Progress and AngularJS</title>
+    <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -11,30 +12,18 @@
 
   <body ng-app="app">
 
-
-    <br/>
-    <br/>
-    <br/>
     <br/>
 
-    <div ng-controller="testCtrl" ng-init="init2(78, 4, '1', 'true')">
+    <div ng-controller="testCtrl" ng-init="init(78)">
       <div>
         <form novalidate>
-          Percentage: <input type="text" ng-model="graph.completionPercent" value="30" placeholder="Enter Percentage"/><br />
-          Duration: <input type="text" ng-model="graph.duration" placeholder="Enter Duration"/><br />
-          Repeat: <input type="radio" ng-model="graph.repeat" value="indefinite" />indefinite
-          <input type="radio" ng-model="graph.repeat" value="1" />1<br />
-          Return: <input type="radio" ng-model="graph.returning" value="true"/>true
-          <input type="radio" ng-model="graph.returning" value="false" />false<br />
+          Percentage: <input type="text" ng-model="config1.completionPercent" value="30" placeholder="Enter Percentage"/><br />
         </form>
-        <pre>Percentage ==> {{graph.completionPercent}}</pre>
-        <pre>Repeat ==> {{graph.repeat}}</pre>
-        <pre>Duration ==> {{graph.duration}}</pre>
-        <pre>Returning ==> {{graph.returning}}</pre>
+        <pre>Percentage ==> {{config1.completionPercent}}</pre>
       </div>
 
 
-  <burble percentage='graph.completionPercent'></pie-chart>
+  <burble percentage='config1.completionPercent'></pie-chart>
 </div>
 
 
